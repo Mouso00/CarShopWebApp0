@@ -1,0 +1,27 @@
+﻿@model Car
+@using CarShopWebApp0.Models
+
+
+<h2>Edit Car</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <div class="form-group">
+        <label>Make:</label>
+        <input type="text" class="form-control" name="Make" value="@Model.Make" required>
+    </div>
+    <div class="form-group">
+        <label>Model:</label>
+        <input type="text" class="form-control" name="Model" value="@Model.Model" required>
+    </div>
+    <div class="form-group">
+        <label>Year:</label>
+        <input type="text" class="form-control" name="Year" value="@Model.Year" required>
+    </div>
+    <div class="form-group">
+        <label>Price:</label>
+        <input type="text" class="form-control" name="Price" value="@Model.Price" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+c

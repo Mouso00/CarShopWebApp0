@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Car>
+@using CarShopWebApp0.Models
+
+<h2>Inventory</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.ID</td>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.Year</td>
+                <td>@car.Price</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@car.ID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@car.ID">Delete</a> |
+                    <a asp-action="AddToCart" asp-route-id="@car.ID">Add to Cart</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Add">Add New Car</a>

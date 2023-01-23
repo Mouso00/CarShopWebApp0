@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Car>
+@using CarShopWebApp0.Models
+
+<h2>Cart</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.ID</td>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.Year</td>
+                <td>@car.Price</td>
+                <td>
+                    <a asp-action="RemoveFromCart" asp-route-id="@car.ID">Remove from Cart</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Total: $@Model.Sum(c => c.Price)</h3>
+
+<a asp-action="Checkout">Checkout</a>
